@@ -10,7 +10,7 @@ evaluate guardrails on that plan.
 
 ## Assumptions
 
-This repository uses GitHub Actions to monitor and retrieve the plan from Terraform Cloud.
+This repository assumes that Terraform Cloud has already been configured to run terraform plan on each pull request.
 
 If you use a different runner, see the scaffolding repository for that
 runner:
@@ -31,8 +31,8 @@ backend.
 
 ### 2. Tokens to Github Secrets.
 
-The Resourcely Github Action requires the following token to authenticate to
-the Resourcely API, Terraform Cloud and Github.
+The Resourcely Github Action requires the following tokens to authenticate to
+the Resourcely API, Terraform Cloud, and Github.
 
 #### RESOURCELY_API_TOKEN
 - Generate a new API token in the [Resourcely portal](https://portal.resourcely.io/settings/generate-api-token)
