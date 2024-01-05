@@ -6,7 +6,7 @@ on:
 
 permissions:
   statuses: read
-  
+
 jobs:
   resourcely-ci:
     runs-on: ubuntu-latest
@@ -17,4 +17,3 @@ jobs:
           gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
           tf_api_token: ${{ secrets.TF_API_TOKEN }}
           resourcely_api_token: ${{ secrets.RESOURCELY_API_TOKEN }}
-          resourcely_api_host: "https://api.resourcely.io"
