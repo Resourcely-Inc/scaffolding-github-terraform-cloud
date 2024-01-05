@@ -1,0 +1,5 @@
+version: "1"
+
+terraform_config_roots:
+  - name: Example project
+    relative_path: .
