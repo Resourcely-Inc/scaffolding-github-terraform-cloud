@@ -1,0 +1,16 @@
+name: Resourcely CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  resourcely-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resourcely CI
+        uses: Resourcely-Inc/resourcely-action@v1
+        with:
+          gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
+          tf_api_token: ${{ secrets.TF_API_TOKEN }}
+          resourcely_api_token: ${{ secrets.RESOURCELY_API_TOKEN }}
