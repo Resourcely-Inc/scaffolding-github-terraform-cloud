@@ -1,5 +1,79 @@
-version: "1"
+version: "2"
 
 terraform_config_roots:
+
   - name: Example project
-    relative_path: .
+
+    description: "Scaffolding project that demonstrates how to
+    integrate Resourcely with a Github + Terraform Cloud-based Terraform
+    workflow."
+
+    # Type of config root. Each type has its own set of configuration options.
+    #
+    # Allowed Values:
+    # simple        - the config root is a Terraform root module itself.
+    #
+    # Environments:
+    # It is common to apply a Terraform config to multiple environments, each
+    # with its own Terraform state file.
+    #
+    # `simple` config roots use Terraform variables and per-env *.tfvars files
+    # for environment-specific values. The config contains references to
+    # Terraform variables. The per-env *.tfvars files define the values of
+    # those variables in each env.
+    type: simple
+
+    # Path to the config root, the directory containing the *.tf
+    # files.
+    #
+    # Relative to the location of this .resourcely.yaml file
+    #
+    # If the config root is the same directory, specify
+    #     path: .
+    path: .
+
+    # Name of the file in the `path` directory in which to place
+    # new resources by default.
+    #
+    # Developers may pick a different file, but will be defaulted to this one.
+    default_file: main.tf
+
+# Uncomment to enabled environment-specific values
+#    # (optional)
+#    #
+#    # Name of the file in the `path` directory in which to place new
+#    # variable declarations for new environment-specific values.
+#    #
+#    var_file: variables.tf
+#
+#    # (optional)
+#    #
+#    # List of the environments that this config root supports.
+#    #
+#    # If this list is missing or empty, developers will not be allowed
+#    # to use environment-specific values.
+#    #
+#    # If non-empty, a developers will be allowed to use environment-specific
+#    # values. For any environment variable, they will have to supply a value
+#    # for each environment in this list.
+#    #
+#    environments:
+#       -
+#         # Name of the environment.
+#         #
+#         # This name is used for two purposes.
+#         # 1. It is shown in the UI to the developers.
+#         # 2. It is used as the value for `context.environment` in guardrails
+#         #    and blueprints.
+#         name: dev
+#
+#         # Name of the file in which to place the variables definitions
+#         # for this environment.
+#         #
+#         # Relative to the config root `path` directory.
+#         #
+#        tfvars_file: envs/dev.tfvars
+#
+#       -
+#         name: prod
+#         tfvars_file: envs/prod.tfvars
